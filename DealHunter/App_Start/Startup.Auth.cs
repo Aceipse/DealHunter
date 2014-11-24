@@ -54,9 +54,9 @@ namespace DealHunter
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1495530730726745",
+               appSecret: "cb01d22578a0f58cfef5f23717e2f491");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
