@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Facebook css*/
+.fb-info {
+    color: white;
+}
+.fb-info p {
+    margin: 3px;
+}
+.fb-info img {
+    margin: 3px;
+}
