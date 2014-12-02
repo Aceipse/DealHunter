@@ -23,7 +23,7 @@ namespace DealHunter.Infrastructure
     {
         protected override void Seed(SampleContext context)
         {
-            var item = new DealTrack() { Name = "Works"};
+            var item = new DealTrack() { Name = "Works", Time = DateTime.Now};
             context.DealTracks.Add(item);
             context.SaveChanges();
         }
