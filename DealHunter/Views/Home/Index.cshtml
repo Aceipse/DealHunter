@@ -2,22 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
+@Scripts.Render("~/bundles/funScripts")
+
 <div id ="flash">
 	<h1> Insert Pornhub banner here.</h1>
 </div>
-
-<script type="text/javascript">
-    //As per request by Tjn
-    var toggle = true;
-    setInterval(function () {
-        if (toggle) {
-            $("#flash").css("background-color", "red");
-        } else {
-            $("#flash").css("background-color", "yellowgreen");
-        }
-        toggle = !toggle;
-    }, 300);
-</script>
 
 <html>
 <body>
