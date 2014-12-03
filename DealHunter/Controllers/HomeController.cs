@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DealHunter.Infrastructure;
@@ -28,18 +30,17 @@ namespace DealHunter.Controllers
         {
             _sampleContext.DealTracks.Add(new DealTrack(){Name = "cake"});
         }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+	    [HttpGet]
+	    public string GetHtml(string url)
+	    {
+			var request = WebRequest.Create(url);
+			var response = request.GetResponse();
+			var reader = new StreamReader(response.GetResponseStream());
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+			string text = reader.ReadToEnd();
+		    return text;
+	    }
 
-            return View();
-        }
     }
 }
