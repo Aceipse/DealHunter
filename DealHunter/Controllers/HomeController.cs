@@ -21,14 +21,14 @@ namespace DealHunter.Controllers
 
         public ActionResult Index()
         {
-            _sampleContext.DealTracks.Add(new DealTrack() { Name = "cake" });
+            
             return View();
         }
 
         [HttpPost]
         public void Index(int a)
         {
-            _sampleContext.DealTracks.Add(new DealTrack(){Name = "cake"});
+            
         }
 
 	    [HttpGet]
@@ -41,6 +41,11 @@ namespace DealHunter.Controllers
 			string text = reader.ReadToEnd();
 		    return text;
 	    }
+
+        public void GetPrice(string url)
+        {
+            ViewBag.URL = url;
+        }
 
     }
 }

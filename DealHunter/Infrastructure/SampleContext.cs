@@ -12,20 +12,12 @@ namespace DealHunter.Infrastructure
         public SampleContext()
             : base("DefaultConnection")
         {
-            Database.SetInitializer<SampleContext>(new SampleSeedInitializer());
+            //Database.SetInitializer<SampleContext>(new DropCreateDatabaseIfModelChanges<SampleContext>());
         }
 
         public DbSet<DealTrack> DealTracks { get; set; }
         
     }
 
-    public class SampleSeedInitializer : DropCreateDatabaseIfModelChanges<SampleContext>
-    {
-        protected override void Seed(SampleContext context)
-        {
-            var item = new DealTrack() { Name = "Works", Time = DateTime.Now};
-            context.DealTracks.Add(item);
-            context.SaveChanges();
-        }
-    }
+    
 }
