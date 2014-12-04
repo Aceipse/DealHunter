@@ -1,11 +1,41 @@
-﻿@{
+﻿@model DealHunter.Model.ListOfDealTracks
+@{
     ViewBag.Title = "Home Page";
 }
 
-@Scripts.Render("~/bundles/funScripts")
+<table class="table table-striped">
+    <tr>
+        @foreach (var prop in Model.DealsTracks.First().GetType().GetProperties())
+        {
+            if (prop.Name != "Id")
+            {
+                <th class="h3" >
+                    @prop.Name
+                </th>
+            }
+        }
+    </tr>
+    @foreach (var track in Model.DealsTracks)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(s => track.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(s => track.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(s => track.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(s => track.Url)
+            </td>
+        </tr>
+    }
+</table>
 
-<div id ="flash">
-	<h1> Insert Pornhub banner here.</h1>
+<div id="flash">
+    <h1> Insert Pornhub banner here.</h1>
 </div>
 
 
@@ -18,9 +48,9 @@
 
 <p>Prøv med et hvilket som helst komplett link</p>
 <input id="iframeUrl" type="url" placeholder="parse denne url" value="https://www.komplett.dk/lenovo-z50-70-156-full-hd/825082" />
-<input id="iframeBtn" type="button" value="Parse"/>
+<input id="iframeBtn" type="button" value="Parse" />
 <input id="findPriceBtn" type="button" value="Find price" />
-<input id="foundPriceInput" type="number"/>
+<input id="foundPriceInput" type="number" />
 <div>
-	<iframe id="iframe" width="800" height="600"></iframe>
+    <iframe id="iframe" width="800" height="600"></iframe>
 </div>

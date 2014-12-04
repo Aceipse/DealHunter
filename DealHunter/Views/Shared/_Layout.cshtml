@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
-
+    @Scripts.Render("~/bundles/funScripts")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +31,7 @@
                         var client = new FacebookClient(Session["accessToken"].ToString());
 
                         dynamic result = client.Get("me", new { fields = "name, id, birthday" });
-
+                        Session["Name"] = result.name;
                         <li class="pull-right">
                             <div class="fb-info">
 
@@ -63,7 +63,6 @@
 			<p>&copy; @DateTime.Now.Year - Martin, Peter og Thomas</p>
 		</footer>
 	</div>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

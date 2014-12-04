@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -21,8 +22,23 @@ namespace DealHunter.Controllers
 
         public ActionResult Index()
         {
-            
-            return View();
+            var myList = new ListOfDealTracks()
+            {
+                DealsTracks = new Collection<DealTrack>(),
+                Owner = "Martin"
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                myList.DealsTracks.Add(new DealTrack()
+                {
+                    Name = "Super Awesome Stuff",
+                    Time = DateTime.Today,
+                    Price = 9999,
+                    Url = "https://www.komplett.dk/lenovo-z50-70-156-full-hd/825082"
+                });
+            }
+            return View(myList);
         }
 
         [HttpPost]
