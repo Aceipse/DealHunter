@@ -33,7 +33,7 @@ namespace DealHunter.Controllers
                 myList.DealsTracks.Add(new DealTrack()
                 {
                     Name = "Super Awesome Stuff",
-                    Time = DateTime.Today,
+                    Time = DateTime.Now,
                     Price = 9999,
                     Url = "https://www.komplett.dk/lenovo-z50-70-156-full-hd/825082"
                 });
