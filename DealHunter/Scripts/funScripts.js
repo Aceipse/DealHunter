@@ -38,16 +38,19 @@ $(function () {
 		});
 	});
 
-	//This strategy has to change depending on the url, this works for komplett
+    //This strategy has to change depending on the url, this works for komplett
 	$("#findPriceBtn").click(function () {
-		var iframe = $("#iframe").contents();
-		//Find the price
-		var price = iframe.find("span[itemprop=price]").text();
-		var priceFormatted = parseFloat(price.replace(".", ""));
-		console.log(priceFormatted);
+	    var iframe = $("#iframe").contents();
+	    //Find the price
+	    var price = iframe.find("span[itemprop=price]").text();
+	    var priceFormatted = parseFloat(price.replace(".", ""));
+	    console.log(priceFormatted);
 
-		//Put it into the input
-		$("#foundPriceInput").val(priceFormatted);
+	    var name = iframe.find("h1[itemprop=name]").text();
+	    console.log(name);
+	    //Put it into the input
+	    $("#foundPriceInput").val(priceFormatted);
+	    $("#foundNameInput").val(name);
 	});
 
 	//As per request by Tjn
