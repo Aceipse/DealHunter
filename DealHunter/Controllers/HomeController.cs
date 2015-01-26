@@ -48,7 +48,7 @@ namespace DealHunter.Controllers
         }
 
 	    [HttpGet]
-	    public string GetHtml(string url)
+	    public string GetHtml(string url, string toplel)
 	    {
 			var request = WebRequest.Create(url);
 			var response = request.GetResponse();

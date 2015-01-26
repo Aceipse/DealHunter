@@ -7,7 +7,7 @@ $(function () {
 		var userUrl = $("#iframeUrl").val();
 
 		//HomeController/GetHtml expects a string named "url"
-		var asMsg = { "url": userUrl };
+		var asMsg = { "url": userUrl};
 
 		//Asynchounous call to HomeController/GetHtml
 		$.ajax({
@@ -17,6 +17,9 @@ $(function () {
 			dataType: "text",	//we're expecting text as answer (html)
 			//Upon completion, run this function, data is returned value from controller
 			complete: function (data) {
+
+			    console.log("topelelel");
+			    console.log(data);
 
 				//http://softwareas.com/injecting-html-into-an-iframe/
 				//Find iframe, take 0 element to get non-jquery
@@ -29,6 +32,7 @@ $(function () {
 				}
 				// Put the content in the iframe
 				doc.open();
+			    window.alert("Martin er tyk");
 				doc.writeln(data.responseText);
 				doc.close();
 			},
